@@ -6,7 +6,7 @@
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
       <a mat-list-item routerLink="/" (click)="sidenav.close()">Home</a>
-      <a mat-list-item>Login</a>
+      <a mat-list-item routerLink="/login" (click)="sidenav.close()">Login</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -18,7 +18,7 @@
       <span class="logo" routerLink="/">BillTracker</span>
       <span class="fill-space"></span>
       <div *ngIf="!(isHandset$ | async)">
-        <a mat-button>Login</a>
+        <a mat-button routerLink="/login">Login</a>
       </div>
     </mat-toolbar>
     <ng-content></ng-content>
