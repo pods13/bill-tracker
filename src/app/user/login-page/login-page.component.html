@@ -1,1 +1,11 @@
-<p>login-page works!</p>
+<main>
+  <div *ngIf="!(fireAuth.authState | async)">
+    <h1>Login</h1>
+    <button mat-raised-button appGoogleSignin>
+      Login with Google
+    </button>
+  </div>
+  <div *ngIf="fireAuth.authState | async as user">
+    {{user.email}}
+  </div>
+</main>
