@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {map, shareReplay} from 'rxjs/operators';
 import {AngularFireAuth} from '@angular/fire/auth';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-shell',
@@ -16,7 +17,14 @@ export class ShellComponent {
   );
 
   constructor(private breakpointObserver: BreakpointObserver,
+              private router: Router,
               public fireAuth: AngularFireAuth) {
+  }
+
+  handleLogout() {
+    this.fireAuth.auth.signOut()
+      .then(() => this.router.navigate(['/']))
+      .catch(console.error);
   }
 
 }
