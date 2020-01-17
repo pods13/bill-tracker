@@ -6,8 +6,9 @@ import {LayoutModule} from '@angular/cdk/layout';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
+import {MatButtonModule} from '@angular/material/button';
 import {RouterModule} from '@angular/router';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 const modules = [
   CommonModule,
@@ -17,6 +18,7 @@ const modules = [
   MatListModule,
   MatIconModule,
   MatButtonModule,
+  MatSnackBarModule,
   RouterModule
 ];
 
