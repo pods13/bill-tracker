@@ -1,11 +1,8 @@
 <main>
-  <div *ngIf="!(fireAuth.authState | async)">
+  <div *ngIf="!(fireAuth.user | async)">
     <h1>Login</h1>
-    <button mat-raised-button appGoogleSignin>
+    <button mat-raised-button appGoogleSignin (signed)="onUserSigned()">
       Login with Google
     </button>
-  </div>
-  <div *ngIf="fireAuth.authState | async as user">
-    {{user.email}}
   </div>
 </main>
