@@ -23,7 +23,7 @@ export class ShellComponent {
 
   handleLogout() {
     this.fireAuth.auth.signOut()
-      .then(() => this.router.navigate(['/']))
+      .then(() => this.router.navigate(['/login']))
       .catch(console.error);
   }
 

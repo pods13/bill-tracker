@@ -9,6 +9,10 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {RouterModule} from '@angular/router';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatCardModule} from '@angular/material/card';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {ReactiveFormsModule} from '@angular/forms';
 
 const modules = [
   CommonModule,
@@ -19,6 +23,10 @@ const modules = [
   MatIconModule,
   MatButtonModule,
   MatSnackBarModule,
+  MatCardModule,
+  MatFormFieldModule,
+  MatInputModule,
+  ReactiveFormsModule,
   RouterModule
 ];
 

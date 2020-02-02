@@ -1,18 +1,20 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-
-import {UserRoutingModule} from './user-routing.module';
 import {SharedModule} from '../shared/shared.module';
 import {LoginPageComponent} from './login-page/login-page.component';
 import {GoogleSigninDirective} from './google-signin.directive';
+import {ProfilePageComponent} from './profile-page/profile-page.component';
 
 
 @NgModule({
-  declarations: [LoginPageComponent, GoogleSigninDirective],
+  declarations: [LoginPageComponent, ProfilePageComponent, GoogleSigninDirective],
   imports: [
     CommonModule,
-    UserRoutingModule,
     SharedModule
+  ],
+  exports: [
+    LoginPageComponent,
+    ProfilePageComponent
   ]
 })
 export class UserModule {

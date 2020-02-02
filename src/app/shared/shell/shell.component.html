@@ -18,9 +18,8 @@
       <span class="logo" routerLink="/">BillTracker</span>
       <span class="fill-space"></span>
       <div *ngIf="!(isHandset$ | async)">
-        <a *ngIf="!(fireAuth.user | async)" mat-button routerLink="/login">Login</a>
-        <a mat-button routerLink="/bills">Bills</a>
-        <a *ngIf="fireAuth.user | async" (click)="handleLogout()" mat-button>Logout</a>
+        <a *ngIf="!(fireAuth.authState | async)" mat-button routerLink="/login">Login</a>
+        <a *ngIf="fireAuth.authState | async" (click)="handleLogout()" mat-button>Logout</a>
       </div>
     </mat-toolbar>
     <ng-content></ng-content>
