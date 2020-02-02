@@ -9,6 +9,7 @@ const routes: Routes = [
   {path: '', redirectTo: 'profile', pathMatch: 'full'},
   {path: 'profile', component: ProfilePageComponent, canActivate: [AuthGuard]},
   {path: 'login', component: LoginPageComponent},
+  {path: 'bills', loadChildren: () => import('./bill/bill.module').then(m => m.BillModule)},
   {path: '**', redirectTo: 'profile'}
 ];
 
