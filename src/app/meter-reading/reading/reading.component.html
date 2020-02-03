@@ -1,0 +1,21 @@
+<mat-card class="reading-card">
+  <mat-card-title>[Month] Water Readings</mat-card-title>
+  <mat-card-subtitle>Readings Period: 01.01.2020 - 31.01.2020</mat-card-subtitle>
+  <mat-card-content>
+    <ng-container *ngFor="let meter of meters">
+      <div>{{meter.type}} ({{meter.meterNumber}})</div>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Current Read" value="">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Previous Read" value="">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Consumption" value="">
+        </mat-form-field>
+      </div>
+    </ng-container>
+    <button mat-raised-button type="submit" color="accent">Submit Readings</button>
+  </mat-card-content>
+</mat-card>

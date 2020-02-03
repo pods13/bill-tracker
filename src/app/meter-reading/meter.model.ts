@@ -7,7 +7,3 @@ export interface Meter {
   meterNumber: string;
   type: MeterType;
 }
-
-export interface User {
-  meters: Meter[];
-}

@@ -1,11 +1,10 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {BillListComponent} from './bill-list/bill-list.component';
-import {AuthGuard} from '../user/auth.guard';
+import {ReadingsPageComponent} from './readings-page/readings-page.component';
 
 
 const routes: Routes = [
-  {path: '', component: BillListComponent}
+  {path: '', component: ReadingsPageComponent}
 ];
 
 @NgModule({
@@ -14,5 +13,5 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class BillRoutingModule {
+export class MeterReadingRoutingModule {
 }

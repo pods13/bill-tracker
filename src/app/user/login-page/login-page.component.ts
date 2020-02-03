@@ -21,14 +21,13 @@ export class LoginPageComponent implements OnInit, OnDestroy {
     this.fireAuth.authState.pipe(takeUntil(this.unsubscribe$))
       .subscribe(user => {
         if (user) {
-          return this.router.navigate(['/profile'])
-            .catch(console.error);
+          return this.onUserSigned();
         }
       });
   }
 
   onUserSigned() {
-    this.router.navigate(['/'])
+    this.router.navigate(['/readings'])
       .catch(console.error);
   }
 

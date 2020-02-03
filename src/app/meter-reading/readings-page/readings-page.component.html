@@ -1,0 +1,6 @@
+<main>
+  <app-reading *ngIf="meters?.length; else register" [meters]="meters"></app-reading>
+  <ng-template #register>
+    <app-register-meters></app-register-meters>
+  </ng-template>
+</main>
