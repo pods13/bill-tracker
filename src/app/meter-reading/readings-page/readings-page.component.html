@@ -1,5 +1,8 @@
 <main>
-  <app-reading *ngIf="meters?.length; else register" [meters]="meters"></app-reading>
+  <app-reading *ngIf="(meterNumberByType | keyvalue)?.length; else register"
+               [meterNumberByType]="meterNumberByType"
+               [lastReading]="lastReading"
+  ></app-reading>
   <ng-template #register>
     <app-register-meters></app-register-meters>
   </ng-template>

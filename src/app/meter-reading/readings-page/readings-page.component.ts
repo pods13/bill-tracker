@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {MeterService} from '../meter.service';
-import {Meter} from '../meter.model';
+import {Meter, MeterType} from '../meter.model';
+import {ReadingService} from '../reading.service';
+import {combineLatest, forkJoin} from 'rxjs';
+import {Reading} from '../reading.model';
 
 @Component({
   selector: 'app-readings-page',
@@ -9,16 +12,20 @@ import {Meter} from '../meter.model';
 })
 export class ReadingsPageComponent implements OnInit {
 
-  meters: Meter[];
+  meterNumberByType: {[key: string]: MeterType};
+  lastReading: Reading;
 
-  constructor(private meterService: MeterService) {
+  constructor(private meterService: MeterService, private readingService: ReadingService) {
   }
 
   ngOnInit() {
-    this.meterService.getMeters()
-      .subscribe((meters) => {
-        this.meters = meters;
-      });
+    combineLatest([this.meterService.getMeters(), this.readingService.getReadings()])
+      .subscribe(([meters, readings]) => {
+        this.meterNumberByType = meters.reduce((res, {meterNumber, type}) => {
+          res[meterNumber] = type;
+          return res;
+        }, {});
+        this.lastReading = readings[0];
+      }, (err) => console.error(err));
   }
-
 }

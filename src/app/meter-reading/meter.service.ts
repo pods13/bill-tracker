@@ -1,4 +1,4 @@
-import {catchError, concatMap, first, map} from 'rxjs/operators';
+import {catchError, concatMap, first, map, switchMap} from 'rxjs/operators';
 import {Meter} from './meter.model';
 import {UserService} from '../user/user.service';
 import {AngularFirestore} from '@angular/fire/firestore';
@@ -15,7 +15,7 @@ export class MeterService {
 
   getMeters() {
     return this.userService.getCurrentUser().pipe(
-      concatMap((user) => {
+      switchMap((user) => {
         if (user) {
           return this.db.collection<Meter>('meters',
             (ref) => ref.where('uid', '==', user.uid))
